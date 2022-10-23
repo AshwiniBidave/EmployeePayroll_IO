@@ -23,10 +23,10 @@ public class EmployeePayrollService {
 		EmployeePayrollService employeePayrollService = new EmployeePayrollService(employeePayrollList);
 		Scanner consoleInputReader = new Scanner(System.in);
 		employeePayrollService.readEmployeePayrollData(consoleInputReader);
-		employeePayrollService.writeEmployeePayrollData();
+		employeePayrollService.writeEmployeePayrollData(EmployeePayrollService.IOService.FILE_IO);
 	}
 
-	private void readEmployeePayrollData(Scanner consoleInputReader) {
+	public void readEmployeePayrollData(Scanner consoleInputReader) {
 		System.out.println("Enter Employee ID: ");
 		int id = consoleInputReader.nextInt();
 		System.out.println("Enter Employee Name: ");
@@ -36,7 +36,8 @@ public class EmployeePayrollService {
 		employeePayrollList.add(new EmployeePayrollData(id, name, salary));
 	}
 
-	private void writeEmployeePayrollData() {
+	public void writeEmployeePayrollData(IOService ioservice) {
 		System.out.println("Writing employee payroll to console\n" + employeePayrollList);
+		
 	}
 }
